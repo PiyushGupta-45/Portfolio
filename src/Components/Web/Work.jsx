@@ -19,7 +19,7 @@ const projects = [
     title: "Password Builder",
     description: "A brief description of project three.",
     image: pass,
-    link: "#",
+    link: "https://github.com/PiyushGupta-45/Password_Builder",
   }
 ];
 
