@@ -13,7 +13,7 @@ const projects = [
     title: "Advance To Do List",
     description: "A brief description of project two.",
     image: todo,
-    link: "#",
+    link: "https://github.com/PiyushGupta-45/Advance_To_Do_List",
   },
   {
     title: "Password Builder",
