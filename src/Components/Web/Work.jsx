@@ -7,7 +7,7 @@ const projects = [
     title: "Fitness Tracker",
     description: "A brief description of project one.",
     image: logo,
-    link: "#",
+    link: "https://github.com/PiyushGupta-45/Fitness_Tracker"
   },
   {
     title: "Advance To Do List",
@@ -33,7 +33,7 @@ const Work = () => {
             <img src={project.image} alt={project.title} className="w-full h-70 object-cover rounded-md mb-4" />
             <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
             <p className="text-gray-400">{project.description}</p>
-            <a href={project.link} className="text-blue-400 hover:underline block mt-4">View Project</a>
+            <a href={project.link} target="_blank" className="text-blue-400 hover:underline block mt-4">View Project</a>
           </div>
         ))}
       </div>
