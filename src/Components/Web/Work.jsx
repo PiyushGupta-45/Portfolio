@@ -2,6 +2,7 @@ import React from "react";
 import pass from "./password.jpg"
 import logo from "./personalTrainer.jpg";
 import todo from "./todo.jpg";
+import womensafety from "./womensafety.jpg"
 const projects = [
   {
     title: "Fitness Tracker",
@@ -10,22 +11,22 @@ const projects = [
     link: "https://github.com/PiyushGupta-45/Fitness_Tracker"
   },
   {
+    title: "Women Safety",
+    description: "A brief description of project three.",
+    image: womensafety,
+    link: "https://github.com/PiyushGupta-45/WomenSafety",
+  },
+  {
+    title: "Password Builder",
+    description: "A brief description of project three.",
+    image: pass,
+    link: "https://github.com/PiyushGupta-45/Password_Builder",
+  },
+  {
     title: "Advance To Do List",
     description: "A brief description of project two.",
     image: todo,
     link: "https://github.com/PiyushGupta-45/Advance_To_Do_List",
-  },
-  {
-    title: "Password Builder",
-    description: "A brief description of project three.",
-    image: pass,
-    link: "https://github.com/PiyushGupta-45/Password_Builder",
-  },
-  {
-    title: "Password Builder",
-    description: "A brief description of project three.",
-    image: pass,
-    link: "https://github.com/PiyushGupta-45/Password_Builder",
   }
 ];
 
@@ -39,7 +40,7 @@ const Work = () => {
             <img src={project.image} alt={project.title} className="w-full h-70 object-cover rounded-md mb-4" />
             <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
             <p className="text-gray-400">{project.description}</p>
-            <a href={project.link} target="_blank" className="text-blue-400 hover:underline block mt-4">View Project</a>
+            <a href={project.link} target="_blank" className="text-blue-400 hover:underline block mt-4">View Source Code</a>
           </div>
         ))}
       </div>
