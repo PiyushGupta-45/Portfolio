@@ -7,10 +7,16 @@ const Contact = () => {
     email: '',
   });
   const [message, setMessage] = useState('');
+  const [isError, setIsError] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     const sanitizedValue = name === "contact" ? value.replace(/\D/g, '') : value;
+
+    // Clear message when user starts editing
+    setMessage('');
+    setIsError(false);
+
     setFormData({ ...formData, [name]: sanitizedValue });
   };
 
@@ -18,7 +24,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch('http://localhost:5000/send-email', {
+      const res = await fetch('https://email-builder-1-qs1o.onrender.com/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -26,13 +32,16 @@ const Contact = () => {
 
       if (res.ok) {
         setMessage('✅ Your message has been sent successfully!');
+        setIsError(false);
         setFormData({ name: '', contact: '', email: '' });
       } else {
         setMessage('❌ Failed to send. Please try again later.');
+        setIsError(true);
       }
     } catch (error) {
       console.error('Error:', error);
       setMessage('❌ Server error. Is the backend running?');
+      setIsError(true);
     }
   };
 
@@ -97,7 +106,11 @@ const Contact = () => {
           </div>
         </form>
 
-        {message && <p className="mt-4 text-lg text-green-400">{message}</p>}
+        {message && (
+          <p className={`mt-4 text-lg ${isError ? 'text-red-400' : 'text-green-400'}`}>
+            {message}
+          </p>
+        )}
       </div>
     </div>
   );
