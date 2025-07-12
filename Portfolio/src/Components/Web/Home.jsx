@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="flex items-center justify-center h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white">
+    <div className="flex items-center justify-center h-screen bg-gray-800 text-white">
       <div className="bg-gray-950 p-12 rounded-3xl shadow-xl text-center max-w-2xl w-full border border-gray-800 bg-opacity-80 transition-all duration-500 transform hover:scale-105">
-        <h1 className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-3 pb-3">
+        <h1 className="text-6xl font-extrabold text-transparent bg-clip-text bg-blue-400 mb-3 pb-3">
           Piyush Gupta
         </h1>
         <p className="text-gray-400 text-lg mb-8">
