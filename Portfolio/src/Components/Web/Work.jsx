@@ -4,6 +4,7 @@ import pass from "./password.jpg";
 import logo from "./HealthHub.png";
 import todo from "./todo.jpg";
 import life from "./life-saver.png";
+import expense from "./Expense_Tracker.png";
 import womensafety from "./womensafety.jpg";
 
 const projects = [
@@ -36,6 +37,12 @@ const projects = [
     description: "A feature-rich task manager...",
     image: todo,
     slug: "advance-to-do-list"
+  },
+  {
+    title: "Advance Expense Tracker",
+    description: "A perfect daily use expense tra...",
+    image: expense,
+    slug: "expense-tracker"
   },
 ];
 

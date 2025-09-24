@@ -22,6 +22,9 @@ This app helps users track their health effectively while leveraging AI.
 **Tech Stack:** Flutter, TensorFlow, MongoDB Atlas, Spring Boot, Tailwind CSS`,
     github: "https://github.com/PiyushGupta-45/Fitness_Tracker",
   },
+
+
+  
   "life-saver": {
     title: "Life Saver",
     // images: [life, "https://via.placeholder.com/600x400?text=Life+Saver+Screenshot+2"],
@@ -37,6 +40,9 @@ It’s built for quick and reliable help in critical situations.
 **Tech Stack:** Flutter, Firebase, Google Maps API, Spring Boot`,
     github: "https://github.com/PiyushGupta-45/Life-Saver",
   },
+
+
+
   "women-safety": {
     title: "Women Safety",
     // images: [womensafety, "https://via.placeholder.com/600x400?text=Women+Safety+Screenshot+2"],
@@ -52,6 +58,9 @@ The app is optimized for quick access and ease of use.
 **Tech Stack:** React Native, Google Maps API, Spring Boot`,
     github: "https://github.com/PiyushGupta-45/WomenSafety",
   },
+
+
+
   "password-builder": {
     title: "Password Builder",
     // images: [pass, "https://via.placeholder.com/600x400?text=Password+Builder+Screenshot+2"],
@@ -67,6 +76,9 @@ The app runs fully on the client-side and requires no backend.
 **Tech Stack:** React.js, Tailwind CSS`,
     github: "https://github.com/PiyushGupta-45/Password_Builder",
   },
+
+
+
   "advance-to-do-list": {
     title: "Advance To Do List",
     // images: [todo, "https://via.placeholder.com/600x400?text=To+Do+List+Screenshot+2"],
@@ -82,6 +94,26 @@ Great for boosting productivity and organizing daily tasks.
 **Tech Stack:** React.js, LocalStorage, Tailwind CSS`,
     github: "https://github.com/PiyushGupta-45/Advance_To_Do_List",
   },
+
+
+  "expense-tracker": {
+    title: "Expense Tracker",
+    // images: [expense, "https://via.placeholder.com/600x400?text=Expense+Tracker+Screenshot+2"],
+    // video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
+    description: `A modern Expense Tracker application to help you manage your personal finances. Key features include:
+
+- Categorize expenses (e.g., Groceries, Utilities, Entertainment, etc...)
+- Daily and monthly spending analysis
+- Visualization of spending habits with charts and graphs
+
+Perfect for monitoring your budget and gaining financial insights.
+
+**Tech Stack:** HTML, Chart.js, LocalStorage, Tailwind CSS`,
+    github: "https://github.com/PiyushGupta-45/expense-tracker"
+  },
+
+
+
 };
 
 const ProjectDetails = () => {
