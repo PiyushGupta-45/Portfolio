@@ -5,7 +5,7 @@ import todo from "./todo.jpg";
 import life from "./life-saver.png";
 import expense from "./Expense_Tracker.png";
 import womensafety from "./womensafety.jpg";
-import ecom from "./ecommerce.png";
+import ecom from "./Ecommerce.png";
 
 const projects = [
   {
