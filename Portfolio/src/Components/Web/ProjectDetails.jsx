@@ -31,7 +31,7 @@ Key Features:
 This app aims to bridge the gap between food abundance and food scarcity through technology.
 
 Tech Stack: Flutter, Firebase, Google Maps API`,
-    github: "https://github.com/PiyushGupta-45/ShareBites",
+    github: "https://github.com/PiyushGupta-45/ShareBite",
     demo: "https://github.com/PiyushGupta-45/ShareBite/releases/download/1.0.0/app-release.apk",
     type: "app",
   },
