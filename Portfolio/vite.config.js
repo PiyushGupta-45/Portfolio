@@ -7,17 +7,7 @@ export default defineConfig({
     tailwindcss(),
     react()
   ],
-  server: {
-    host: true,
-    port: 5173,
-  },
-  preview: {
-    port: 4173,
-    host: true,
-  },
-  build: {
-    outDir: 'dist',
-  },
+
   // 👇 This enables proper route handling on refresh or direct URL hits
   resolve: {
     alias: {}
