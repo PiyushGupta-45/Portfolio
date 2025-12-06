@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import pass from "./password.jpg";
 import logo from "./HealthHub.png";
 import todo from "./todo.jpg";
 import life from "./life-saver.png";
