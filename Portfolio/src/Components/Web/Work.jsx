@@ -7,6 +7,7 @@ import expense from "./Expense_Tracker.png";
 import womensafety from "./womensafety.jpg";
 import ecom from "./Ecommerce.png";
 import sharebites from "./ShareBites.png";
+import budget from "./BudgetTracker.png";
 
 const projects = [
   {
@@ -19,7 +20,7 @@ const projects = [
   {
     title: "Budget Tracker",
     description: "A perfect daily use expense tra...",
-    image: expense,
+    image: budget,
     slug: "budget-tracker-flutter",
     category: "Flutter Apps"
   },
