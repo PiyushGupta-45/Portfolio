@@ -6,6 +6,7 @@ import todo from "./todo.jpg";
 import life from "./life-saver.png";
 import expense from "./Expense_Tracker.png";
 import womensafety from "./womensafety.jpg";
+import ecom from "./ecommerce.png";
 
 const projects = [
   {
@@ -44,7 +45,7 @@ const projects = [
     category: "React Projects"
   },
   {
-    title: "Advance Expense Tracker",
+    title: "Expense Tracker",
     description: "A perfect daily use expense tra...",
     image: expense,
     slug: "expense-tracker",
@@ -53,7 +54,7 @@ const projects = [
   {
     title: "Ecommerce Website",
     description: "A Complete Ecommerce Website...",
-    image: pass,
+    image: ecom,
     slug: "Ecommerce",
     category: "React Projects"
   },
@@ -62,13 +63,6 @@ const projects = [
     description: "A feature-rich task manager...",
     image: todo,
     slug: "advance-to-do-list",
-    category: "React Projects"
-  },
-  {
-    title: "Password Builder",
-    description: "A secure and customizable password...",
-    image: pass,
-    slug: "password-builder",
     category: "React Projects"
   },
   {

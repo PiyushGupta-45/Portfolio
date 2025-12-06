@@ -1,3 +1,4 @@
+import React from "react";
 import { useParams, Link } from "react-router-dom";
 
 const projects = {
@@ -13,6 +14,8 @@ This app helps users track their health effectively while leveraging AI.
 
 Tech Stack: Flutter, TensorFlow, MongoDB Atlas, Spring Boot, Tailwind CSS`,
     github: "https://github.com/PiyushGupta-45/New_Health_hub",
+    demo: "https://github.com/PiyushGupta-45/New_Health_hub/releases/download/1.0.2/app-release.apk",
+    type: "app",
   },
 
   "share-bites": {
@@ -28,7 +31,9 @@ Key Features:
 This app aims to bridge the gap between food abundance and food scarcity through technology.
 
 Tech Stack: Flutter, Firebase, Google Maps API`,
-    github: "https://github.com/PiyushGupta-45/ShareBite",
+    github: "https://github.com/PiyushGupta-45/ShareBites",
+    demo: "https://github.com/PiyushGupta-45/ShareBite/releases/download/1.0.0/app-release.apk",
+    type: "app",
   },
 
   "budget-tracker-flutter": {
@@ -45,6 +50,8 @@ Note: This is the mobile version of the expense tracker, offering on-the-go fina
 
 Tech Stack: Flutter, Hive (Local DB), Provider (State Management)`,
     github: "https://github.com/PiyushGupta-45/Budget_Tracker_App",
+    demo: "https://github.com/PiyushGupta-45/Budget_Tracker_App/releases/download/1.0.0/app-release.apk",
+    type: "app",
   },
 
   "health-hub-react": {
@@ -62,9 +69,9 @@ This project demonstrates a scalable full-stack architecture with a responsive R
 
 Tech Stack: React.js, Node.js, Express.js, MongoDB, Tailwind CSS, Redux Toolkit`,
     github: "https://github.com/PiyushGupta-45/New_Health_hub_web",
+    demo: "https://new-health-hub-web.vercel.app/",
+    type: "web",
   },
-
-
 
   "life-saver": {
     title: "Life Saver",
@@ -78,9 +85,9 @@ It’s built for quick and reliable help in critical situations.
 
 Tech Stack: Flutter, Firebase, Google Maps API, Spring Boot`,
     github: "https://github.com/PiyushGupta-45/Life-Saver",
+    demo: "#",
+    type: "app",
   },
-
-
 
   "women-safety": {
     title: "Women Safety",
@@ -94,25 +101,9 @@ The app is optimized for quick access and ease of use.
 
 Tech Stack: React Native, Google Maps API, Spring Boot`,
     github: "https://github.com/PiyushGupta-45/WomenSafety",
+    demo: "https://women-safety-phi.vercel.app/",
+    type: "web",
   },
-
-
-
-  "password-builder": {
-    title: "Password Builder",
-    description: `Password Builder is a secure password generator that lets users:
-
-- Choose length and complexity (uppercase, special chars)
-- View strength indication in real-time
-- Copy generated password with one click
-
-The app runs fully on the client-side and requires no backend.
-
-Tech Stack: React.js, Tailwind CSS`,
-    github: "https://github.com/PiyushGupta-45/Password_Builder",
-  },
-
-
 
   "advance-to-do-list": {
     title: "Advance To Do List",
@@ -126,8 +117,9 @@ Great for boosting productivity and organizing daily tasks.
 
 Tech Stack: React.js, LocalStorage, Tailwind CSS`,
     github: "https://github.com/PiyushGupta-45/Advance_To_Do_List",
+    demo: "https://advance-to-do-list-phi.vercel.app/",
+    type: "web",
   },
-
 
   "expense-tracker": {
     title: "Expense Tracker",
@@ -140,7 +132,9 @@ Tech Stack: React.js, LocalStorage, Tailwind CSS`,
 Perfect for monitoring your budget and gaining financial insights.
 
 Tech Stack: HTML, Chart.js, LocalStorage, Tailwind CSS`,
-    github: "https://github.com/PiyushGupta-45/expense-tracker"
+    github: "https://github.com/PiyushGupta-45/expense-tracker",
+    demo: "https://expense-tracker-rho-sand-60.vercel.app/",
+    type: "web",
   },
 
   "Ecommerce": {
@@ -157,11 +151,10 @@ Key Features:
 This project showcases a complete commercial application flow from product discovery to checkout.
 
 Tech Stack: React.js, Node.js, Express.js, MongoDB, Redux, Stripe API`,
-    github: "https://github.com/PiyushGupta-45/Ecommerce"
+    github: "https://github.com/PiyushGupta-45/Ecommerce",
+    demo: "https://ecommerce-umber-pi.vercel.app/",
+    type: "web",
   },
-
-
-
 };
 
 const ProjectDetails = () => {
@@ -197,6 +190,18 @@ const ProjectDetails = () => {
           >
             <i className="fab fa-github"></i> View Source Code on GitHub
           </a>
+
+          {project.demo && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noreferrer"
+              className="px-8 py-3 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white rounded-xl transition-all shadow-lg shadow-violet-500/25 flex items-center gap-2 font-medium transform hover:-translate-y-1"
+            >
+              <i className={project.type === "app" ? "fas fa-download" : "fas fa-external-link-alt"}></i>
+              {project.type === "app" ? "Download App" : "Visit Live Site"}
+            </a>
+          )}
 
           <Link to="/work" className="text-slate-400 hover:text-white transition-colors flex items-center gap-2">
             ← Back to Work
