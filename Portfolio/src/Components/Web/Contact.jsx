@@ -11,6 +11,7 @@ const Contact = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    // Sanitization logic remains the same
     const sanitizedValue = name === "contact" ? value.replace(/\D/g, '') : value;
 
     // Clear message when user starts editing
@@ -46,70 +47,70 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black text-white px-6">
-      <div className='max-w-2xl w-full text-center py-10 px-8 border border-gray-700 rounded-2xl shadow-xl bg-gray-800'>
-        <p className='font-semibold text-3xl mb-6 text-violet-500'>
+    <div className="min-h-screen flex items-center justify-center bg-slate-950 text-white px-6 py-12">
+      <div className='max-w-2xl w-full text-center py-12 px-8 border border-slate-800 rounded-3xl shadow-2xl shadow-violet-500/10 bg-slate-900/50 backdrop-blur-xl'>
+        <p className='font-bold text-4xl mb-6 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400'>
           Let's Get in Touch!
         </p>
-        <p className='text-gray-300 mb-8'>
-          Enter your details below, I will contact you as soon as possible.
+        <p className='text-slate-400 mb-10 text-lg'>
+          Enter your details below, and I will contact you as soon as possible.
         </p>
 
         <form onSubmit={handleSubmit} className='flex flex-col items-center space-y-6'>
-          <div className="w-full">
-            <label htmlFor="name" className='block text-lg mb-2 text-gray-200'>Enter Your Name:</label>
+          <div className="w-full text-left">
+            <label htmlFor="name" className='block text-sm font-medium mb-2 text-slate-300 ml-1'>Full Name</label>
             <input
               id='name'
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className='w-full p-3 rounded-lg bg-gray-700 text-white text-lg outline-none focus:ring-2 focus:ring-violet-500'
+              className='w-full p-4 rounded-xl bg-slate-950 text-white text-lg border border-slate-800 focus:border-violet-500 focus:ring-2 focus:ring-violet-500/50 outline-none transition-all placeholder-slate-600'
               type="text"
-              placeholder="Enter Here"
+              placeholder="e.g. John Doe"
               required
             />
           </div>
-          <div className="w-full">
-            <label htmlFor="contact" className='block text-lg mb-2 text-gray-200'>Enter Your Contact Number:</label>
+          <div className="w-full text-left">
+            <label htmlFor="contact" className='block text-sm font-medium mb-2 text-slate-300 ml-1'>Contact Number</label>
             <input
               id='contact'
               name="contact"
               value={formData.contact}
               onChange={handleChange}
-              className='w-full p-3 rounded-lg bg-gray-700 text-white text-lg outline-none focus:ring-2 focus:ring-violet-500'
+              className='w-full p-4 rounded-xl bg-slate-950 text-white text-lg border border-slate-800 focus:border-violet-500 focus:ring-2 focus:ring-violet-500/50 outline-none transition-all placeholder-slate-600'
               type="text"
               inputMode='numeric'
-              placeholder="Enter Here"
+              placeholder="e.g. 1234567890"
               required
             />
           </div>
-          <div className="w-full">
-            <label htmlFor="email" className='block text-lg mb-2 text-gray-200'>Enter Your Email:</label>
+          <div className="w-full text-left">
+            <label htmlFor="email" className='block text-sm font-medium mb-2 text-slate-300 ml-1'>Email Address</label>
             <input
               id='email'
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className='w-full p-3 rounded-lg bg-gray-700 text-white text-lg outline-none focus:ring-2 focus:ring-violet-500'
+              className='w-full p-4 rounded-xl bg-slate-950 text-white text-lg border border-slate-800 focus:border-violet-500 focus:ring-2 focus:ring-violet-500/50 outline-none transition-all placeholder-slate-600'
               type="email"
-              placeholder="Enter Here"
+              placeholder="e.g. john@example.com"
               required
             />
           </div>
-          <div className="w-full">
+          <div className="w-full pt-4">
             <button
               type="submit"
-              className='w-full py-3 font-semibold text-lg bg-violet-600 hover:bg-violet-700 rounded-lg transition-all text-white shadow-md'
+              className='w-full py-4 font-bold text-lg bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 rounded-xl transition-all text-white shadow-lg shadow-violet-500/25 transform hover:-translate-y-1'
             >
-              Submit
+              Send Message
             </button>
           </div>
         </form>
 
         {message && (
-          <p className={`mt-4 text-lg ${isError ? 'text-red-400' : 'text-green-400'}`}>
+          <div className={`mt-6 p-4 rounded-lg text-lg font-medium ${isError ? 'bg-red-500/10 text-red-400 border border-red-500/20' : 'bg-green-500/10 text-green-400 border border-green-500/20'}`}>
             {message}
-          </p>
+          </div>
         )}
       </div>
     </div>

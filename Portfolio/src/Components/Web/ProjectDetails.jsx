@@ -24,7 +24,7 @@ This app helps users track their health effectively while leveraging AI.
   },
 
 
-  
+
   "life-saver": {
     title: "Life Saver",
     // images: [life, "https://via.placeholder.com/600x400?text=Life+Saver+Screenshot+2"],
@@ -122,50 +122,39 @@ const ProjectDetails = () => {
 
   if (!project) {
     return (
-      <div className="text-center text-white py-12">
-        <h2 className="text-2xl">Project not found!</h2>
-        <Link to="/work" className="text-blue-400 hover:underline mt-4 block">Go back to Work</Link>
+      <div className="min-h-screen flex flex-col items-center justify-center bg-slate-950 text-white">
+        <h2 className="text-3xl font-bold text-slate-300">Project not found!</h2>
+        <Link to="/work" className="text-violet-400 hover:text-violet-300 hover:underline mt-4 text-lg">Go back to Work</Link>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white py-12 px-6 flex flex-col items-center">
-      <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
+    <div className="min-h-screen bg-slate-950 text-white py-20 px-6 flex flex-col items-center">
+      <h1 className="text-4xl md:text-5xl font-extrabold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400 text-center">{project.title}</h1>
 
-      {/* Image gallery */}
-      {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mb-6">
-        {project.images.map((img, i) => (
-          <img
-            key={i}
-            src={img}
-            alt={`${project.title} screenshot ${i + 1}`}
-            className="rounded-md shadow-md"
-          />
-        ))}
-      </div>
-      
-      {project.video && (
-        <div className="w-full max-w-3xl mb-6">
-          <iframe
-            className="w-full h-64 md:h-96 rounded-lg shadow-lg"
-            src={project.video}
-            title={project.title}
-            frameBorder="0"
-            allowFullScreen
-          ></iframe>
+      {/* Image gallery placeholder if needed later */}
+
+      <div className="bg-slate-900/50 backdrop-blur-md border border-slate-800 p-8 md:p-12 rounded-2xl max-w-4xl w-full shadow-2xl">
+        <div className="prose prose-invert max-w-none">
+          <p className="text-slate-300 text-lg md:text-xl whitespace-pre-line leading-relaxed">{project.description}</p>
         </div>
-      )} */}
-     
 
-      <p className="text-gray-300 text-lg max-w-2xl whitespace-pre-line text-center">{project.description}</p>
+        <div className="mt-12 flex flex-col md:flex-row items-center gap-6 border-t border-slate-800 pt-8">
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noreferrer"
+            className="px-8 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl transition-all border border-slate-700 hover:border-violet-500 hover:text-violet-400 flex items-center gap-2 font-medium"
+          >
+            <i className="fab fa-github"></i> View Source Code on GitHub
+          </a>
 
-      <a href={project.github} target="_blank" className="mt-6 text-blue-400 hover:underline">
-        View Source Code on GitHub
-      </a>
-      <Link to="/work" className="mt-4 text-gray-400 hover:underline block">
-        ← Back to Work
-      </Link>
+          <Link to="/work" className="text-slate-400 hover:text-white transition-colors flex items-center gap-2">
+            ← Back to Work
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
