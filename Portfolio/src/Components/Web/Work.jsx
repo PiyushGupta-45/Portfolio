@@ -6,6 +6,7 @@ import life from "./life-saver.png";
 import expense from "./Expense_Tracker.png";
 import womensafety from "./womensafety.jpg";
 import ecom from "./Ecommerce.png";
+import sharebites from "./ShareBites.png";
 
 const projects = [
   {
@@ -25,7 +26,7 @@ const projects = [
   {
     title: "Share Bites",
     description: "A feature-rich food sharing app...",
-    image: todo,
+    image: sharebites,
     slug: "share-bites",
     category: "Flutter Apps"
   },
