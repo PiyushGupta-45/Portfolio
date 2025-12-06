@@ -7,9 +7,4 @@ export default defineConfig({
     tailwindcss(),
     react()
   ],
-
-  // 👇 This enables proper route handling on refresh or direct URL hits
-  resolve: {
-    alias: {}
-  },
 })
