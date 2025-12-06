@@ -1,16 +1,8 @@
-import React from "react";
 import { useParams, Link } from "react-router-dom";
-import logo from "./HealthHub.png";
-import life from "./life-saver.png";
-import womensafety from "./womensafety.jpg";
-import pass from "./password.jpg";
-import todo from "./todo.jpg";
 
 const projects = {
   "health-hub": {
     title: "Health Hub",
-    // images: [logo, "logo?text=HealthHub+Screenshot+2"], // Add more if needed
-    // video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
     description: `Health Hub is a full-stack AI-powered fitness application that provides:
 
 - Real-time posture detection using TensorFlow
@@ -19,16 +11,63 @@ const projects = {
 
 This app helps users track their health effectively while leveraging AI.
 
-**Tech Stack:** Flutter, TensorFlow, MongoDB Atlas, Spring Boot, Tailwind CSS`,
-    github: "https://github.com/PiyushGupta-45/Fitness_Tracker",
+Tech Stack: Flutter, TensorFlow, MongoDB Atlas, Spring Boot, Tailwind CSS`,
+    github: "https://github.com/PiyushGupta-45/New_Health_hub",
+  },
+
+  "share-bites": {
+    title: "Share Bites",
+    description: `Share Bites is a mobile application developed in Flutter to combat food waste and hunger.
+
+Key Features:
+- Food Donation: Users/Restaurants can list excess food.
+- Geo-Location: Find nearby food donations on a map.
+- Real-Time Alerts: Notifications for new available food items nearby.
+- Volunteer Coordination: Connects volunteers with donors and NGOs.
+
+This app aims to bridge the gap between food abundance and food scarcity through technology.
+
+Tech Stack: Flutter, Firebase, Google Maps API`,
+    github: "https://github.com/PiyushGupta-45/ShareBite",
+  },
+
+  "budget-tracker-flutter": {
+    title: "Budget Tracker",
+    description: `A comprehensive customized expense tracking mobile application built with Flutter.
+
+Key Features:
+- Expense Logging: Easily add and categorize daily expenses.
+- Monthly Analysis: Visual charts to track spending vs budget.
+- Custom Categories: Personalize expense categories.
+- Offline Mode: Works seamlessly without internet connection (Hive DB).
+
+Note: This is the mobile version of the expense tracker, offering on-the-go financial management.
+
+Tech Stack: Flutter, Hive (Local DB), Provider (State Management)`,
+    github: "https://github.com/PiyushGupta-45/Budget_Tracker_App",
+  },
+
+  "health-hub-react": {
+    title: "Health Hub - React Version",
+    description: `A comprehensive web-based Health Hub solution built with the MERN stack.
+
+Key Features:
+- Dashboard: Visual overview of health stats and daily progress.
+- Workout Tracking: Log and manage daily exercise routines.
+- Diet Planning: AI-driven meal suggestions based on caloric needs.
+- Appointment Scheduling: Book appointments with nutritionists or trainers.
+- Community Forum: Discuss health tips and share progress with others.
+
+This project demonstrates a scalable full-stack architecture with a responsive React frontend and a robust Node/Express backend.
+
+Tech Stack: React.js, Node.js, Express.js, MongoDB, Tailwind CSS, Redux Toolkit`,
+    github: "https://github.com/PiyushGupta-45/New_Health_hub_web",
   },
 
 
 
   "life-saver": {
     title: "Life Saver",
-    // images: [life, "https://via.placeholder.com/600x400?text=Life+Saver+Screenshot+2"],
-    // video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
     description: `Life Saver is a real-time emergency response application designed to:
 
 - Alert emergency contacts with live location
@@ -37,7 +76,7 @@ This app helps users track their health effectively while leveraging AI.
 
 It’s built for quick and reliable help in critical situations.
 
-**Tech Stack:** Flutter, Firebase, Google Maps API, Spring Boot`,
+Tech Stack: Flutter, Firebase, Google Maps API, Spring Boot`,
     github: "https://github.com/PiyushGupta-45/Life-Saver",
   },
 
@@ -45,8 +84,6 @@ It’s built for quick and reliable help in critical situations.
 
   "women-safety": {
     title: "Women Safety",
-    // images: [womensafety, "https://via.placeholder.com/600x400?text=Women+Safety+Screenshot+2"],
-    // video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
     description: `Women Safety is a mobile application focused on women's personal security:
 
 - Voice-activated SOS system
@@ -55,7 +92,7 @@ It’s built for quick and reliable help in critical situations.
 
 The app is optimized for quick access and ease of use.
 
-**Tech Stack:** React Native, Google Maps API, Spring Boot`,
+Tech Stack: React Native, Google Maps API, Spring Boot`,
     github: "https://github.com/PiyushGupta-45/WomenSafety",
   },
 
@@ -63,8 +100,6 @@ The app is optimized for quick access and ease of use.
 
   "password-builder": {
     title: "Password Builder",
-    // images: [pass, "https://via.placeholder.com/600x400?text=Password+Builder+Screenshot+2"],
-    // video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
     description: `Password Builder is a secure password generator that lets users:
 
 - Choose length and complexity (uppercase, special chars)
@@ -73,7 +108,7 @@ The app is optimized for quick access and ease of use.
 
 The app runs fully on the client-side and requires no backend.
 
-**Tech Stack:** React.js, Tailwind CSS`,
+Tech Stack: React.js, Tailwind CSS`,
     github: "https://github.com/PiyushGupta-45/Password_Builder",
   },
 
@@ -81,8 +116,6 @@ The app runs fully on the client-side and requires no backend.
 
   "advance-to-do-list": {
     title: "Advance To Do List",
-    // images: [todo, "https://via.placeholder.com/600x400?text=To+Do+List+Screenshot+2"],
-    // video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
     description: `An advanced To-Do List application that supports:
 
 - Task filtering by status (Completed/Pending)
@@ -91,15 +124,13 @@ The app runs fully on the client-side and requires no backend.
 
 Great for boosting productivity and organizing daily tasks.
 
-**Tech Stack:** React.js, LocalStorage, Tailwind CSS`,
+Tech Stack: React.js, LocalStorage, Tailwind CSS`,
     github: "https://github.com/PiyushGupta-45/Advance_To_Do_List",
   },
 
 
   "expense-tracker": {
     title: "Expense Tracker",
-    // images: [expense, "https://via.placeholder.com/600x400?text=Expense+Tracker+Screenshot+2"],
-    // video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
     description: `A modern Expense Tracker application to help you manage your personal finances. Key features include:
 
 - Categorize expenses (e.g., Groceries, Utilities, Entertainment, etc...)
@@ -108,8 +139,25 @@ Great for boosting productivity and organizing daily tasks.
 
 Perfect for monitoring your budget and gaining financial insights.
 
-**Tech Stack:** HTML, Chart.js, LocalStorage, Tailwind CSS`,
+Tech Stack: HTML, Chart.js, LocalStorage, Tailwind CSS`,
     github: "https://github.com/PiyushGupta-45/expense-tracker"
+  },
+
+  "Ecommerce": {
+    title: "Ecommerce Website",
+    description: `A fully functional E-commerce platform designed for a seamless shopping experience.
+
+Key Features:
+- User Authentication: Secure login/signup with JWT.
+- Product Management: Browse, search, and filter products with ease.
+- Shopping Cart: Add/remove items and adjust quantities dynamically.
+- Payment Gateway: Integrated generic payment processing flow.
+- Admin Panel: Manage products, orders, and users.
+
+This project showcases a complete commercial application flow from product discovery to checkout.
+
+Tech Stack: React.js, Node.js, Express.js, MongoDB, Redux, Stripe API`,
+    github: "https://github.com/PiyushGupta-45/Ecommerce"
   },
 
 
@@ -131,7 +179,7 @@ const ProjectDetails = () => {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white py-20 px-6 flex flex-col items-center">
-      <h1 className="text-4xl md:text-5xl font-extrabold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400 text-center">{project.title}</h1>
+      <h1 className="text-4xl md:text-5xl pb-2 font-extrabold mb-5 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400 text-center">{project.title}</h1>
 
       {/* Image gallery placeholder if needed later */}
 

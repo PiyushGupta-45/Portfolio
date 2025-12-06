@@ -16,6 +16,20 @@ const projects = [
     category: "Flutter Apps"
   },
   {
+    title: "Budget Tracker",
+    description: "A perfect daily use expense tra...",
+    image: expense,
+    slug: "budget-tracker-flutter",
+    category: "Flutter Apps"
+  },
+  {
+    title: "Share Bites",
+    description: "A feature-rich food sharing app...",
+    image: todo,
+    slug: "share-bites",
+    category: "Flutter Apps"
+  },
+  {
     title: "Life Saver",
     description: "A real-time emergency assistance app...",
     image: life,
@@ -23,17 +37,24 @@ const projects = [
     category: "Flutter Apps"
   },
   {
-    title: "Women Safety",
-    description: "A safety-focused app for women...",
-    image: womensafety,
-    slug: "women-safety",
-    category: "Flutter Apps"
+    title: "Health Hub",
+    description: "A Complete Solution for Health...",
+    image: logo,
+    slug: "health-hub-react",
+    category: "React Projects"
   },
   {
-    title: "Password Builder",
-    description: "A secure and customizable password...",
+    title: "Advance Expense Tracker",
+    description: "A perfect daily use expense tra...",
+    image: expense,
+    slug: "expense-tracker",
+    category: "React Projects"
+  },
+  {
+    title: "Ecommerce Website",
+    description: "A Complete Ecommerce Website...",
     image: pass,
-    slug: "password-builder",
+    slug: "Ecommerce",
     category: "React Projects"
   },
   {
@@ -44,10 +65,17 @@ const projects = [
     category: "React Projects"
   },
   {
-    title: "Advance Expense Tracker",
-    description: "A perfect daily use expense tra...",
-    image: expense,
-    slug: "expense-tracker",
+    title: "Password Builder",
+    description: "A secure and customizable password...",
+    image: pass,
+    slug: "password-builder",
+    category: "React Projects"
+  },
+  {
+    title: "Women Safety",
+    description: "A safety-focused app for women...",
+    image: womensafety,
+    slug: "women-safety",
     category: "React Projects"
   },
 ];
@@ -58,7 +86,7 @@ const Work = () => {
   const filteredProjects = projects.filter(project => project.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white py-12 px-6">
+    <div className="min-h-screen bg-slate-950 text-white py-25 px-6">
       <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400">View My Work</h2>
 
       {!selectedCategory ? (

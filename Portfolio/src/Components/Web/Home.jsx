@@ -24,7 +24,7 @@ const Home = () => {
           </Link>
         </div>
         <div className="flex justify-center gap-8 pt-6 border-t border-slate-800/50">
-          <a href="https://www.linkedin.com/in/piyush-gupta321/" target="_blank" rel="noreferrer" className="text-slate-500 hover:text-blue-500 transition-all duration-300 text-3xl transform hover:scale-110">
+          <a href="https://www.linkedin.com/in/piyush-gupta4321/" target="_blank" rel="noreferrer" className="text-slate-500 hover:text-blue-500 transition-all duration-300 text-3xl transform hover:scale-110">
             <i className="fab fa-linkedin"></i> LinkedIn
           </a>
           <a href="https://github.com/PiyushGupta-45" target="_blank" rel="noreferrer" className="text-slate-500 hover:text-white transition-all duration-300 text-3xl transform hover:scale-110">
