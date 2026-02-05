@@ -14,7 +14,7 @@ This app helps users track their health effectively while leveraging AI.
 
 Tech Stack: Flutter, TensorFlow, MongoDB Atlas, Spring Boot, Tailwind CSS`,
     github: "https://github.com/PiyushGupta-45/New_Health_hub",
-    demo: "https://github.com/PiyushGupta-45/New_Health_hub/releases/download/1.0.2/app-release.apk",
+    demo: "https://github.com/PiyushGupta-45/New_Health_hub/releases/download/1.0.3/app-debug.apk",
     type: "app",
   },
 
