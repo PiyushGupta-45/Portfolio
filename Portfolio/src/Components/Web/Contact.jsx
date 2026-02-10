@@ -27,7 +27,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`${API_BASE_URL}/send-email`, {
+      const res = await fetch(`${API_BASE_URL}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
