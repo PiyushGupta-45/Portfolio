@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+const API_BASE_URL = (import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000').replace(/\/$/, '');
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -25,7 +27,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch('https://email-builder-1-qs1o.onrender.com/send-email', {
+      const res = await fetch(`${API_BASE_URL}/send-email`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
