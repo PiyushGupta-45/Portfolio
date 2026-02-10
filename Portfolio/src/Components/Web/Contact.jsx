@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const API_BASE_URL = (import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000').replace(/\/$/, '');
+const SEND_EMAIL_URL = API_BASE_URL.endsWith('/send-email') ? API_BASE_URL : `${API_BASE_URL}/send-email`;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`${API_BASE_URL}`, {
+      const res = await fetch(SEND_EMAIL_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
