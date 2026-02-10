@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-const API_BASE_URL = (import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000').replace(/\/$/, '');
-const SEND_EMAIL_URL = API_BASE_URL.endsWith('/send-email') ? API_BASE_URL : `${API_BASE_URL}/send-email`;
+const CONTACT_EMAIL = (import.meta.env.VITE_CONTACT_EMAIL || '').trim();
+const FORM_ENDPOINT = CONTACT_EMAIL ? `https://formsubmit.co/ajax/${encodeURIComponent(CONTACT_EMAIL)}` : '';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -24,11 +24,26 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!FORM_ENDPOINT) {
+      setMessage('Contact form is not configured. Set VITE_CONTACT_EMAIL in frontend env.');
+      setIsError(true);
+      return;
+    }
+
     try {
-      const res = await fetch(SEND_EMAIL_URL, {
+      const res = await fetch(FORM_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          contact: formData.contact,
+          email: formData.email,
+          _subject: 'New Portfolio Contact Submission',
+          _template: 'table',
+        }),
       });
       const data = await res.json().catch(() => ({}));
 
@@ -42,7 +57,7 @@ const Contact = () => {
       }
     } catch (error) {
       console.error('Error:', error);
-      setMessage('Server error. Is the backend running?');
+      setMessage('Network error. Please try again.');
       setIsError(true);
     }
   };
