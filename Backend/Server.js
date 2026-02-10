@@ -5,7 +5,8 @@ const nodemailer = require('nodemailer');
 const cors = require('cors');
 
 const app = express();
-const { GMAIL_USER, GMAIL_PASS } = process.env;
+const GMAIL_USER = (process.env.GMAIL_USER || '').trim();
+const GMAIL_PASS = (process.env.GMAIL_PASS || '').replace(/\s+/g, '');
 
 app.use(express.json());
 app.use(cors());
@@ -26,11 +27,16 @@ app.post('/send-email', async (req, res) => {
   }
 
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
       user: GMAIL_USER,
       pass: GMAIL_PASS,
     },
+    connectionTimeout: 15000,
+    greetingTimeout: 15000,
+    socketTimeout: 20000,
   });
 
   const mailOptions = {
@@ -49,6 +55,12 @@ app.post('/send-email', async (req, res) => {
     if (error?.code === 'EAUTH') {
       return res.status(500).json({
         message: 'Email auth failed. Check GMAIL_USER and GMAIL_PASS (use Gmail App Password).',
+      });
+    }
+
+    if (error?.code === 'ETIMEDOUT') {
+      return res.status(500).json({
+        message: 'SMTP connection timed out. Check Render outbound access and Gmail SMTP settings.',
       });
     }
 
