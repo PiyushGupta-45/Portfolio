@@ -14,13 +14,10 @@ const Contact = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    // Sanitization logic remains the same
-    const sanitizedValue = name === "contact" ? value.replace(/\D/g, '') : value;
+    const sanitizedValue = name === 'contact' ? value.replace(/\D/g, '') : value;
 
-    // Clear message when user starts editing
     setMessage('');
     setIsError(false);
-
     setFormData({ ...formData, [name]: sanitizedValue });
   };
 
@@ -33,18 +30,19 @@ const Contact = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
+      const data = await res.json().catch(() => ({}));
 
       if (res.ok) {
-        setMessage('✅ Your message has been sent successfully!');
+        setMessage(data.message || 'Message sent successfully!');
         setIsError(false);
         setFormData({ name: '', contact: '', email: '' });
       } else {
-        setMessage('❌ Failed to send. Please try again later.');
+        setMessage(data.message || 'Failed to send. Please try again later.');
         setIsError(true);
       }
     } catch (error) {
       console.error('Error:', error);
-      setMessage('❌ Server error. Is the backend running?');
+      setMessage('Server error. Is the backend running?');
       setIsError(true);
     }
   };
