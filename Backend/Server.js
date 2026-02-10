@@ -8,6 +8,11 @@ const app = express();
 const GMAIL_USER = (process.env.GMAIL_USER || '').trim();
 const GMAIL_PASS = (process.env.GMAIL_PASS || '').replace(/\s+/g, '');
 
+const smtpConfigs = [
+  { host: 'smtp.gmail.com', port: 465, secure: true },
+  { host: 'smtp.gmail.com', port: 587, secure: false, requireTLS: true },
+];
+
 app.use(express.json());
 app.use(cors());
 
@@ -26,19 +31,6 @@ app.post('/send-email', async (req, res) => {
     return res.status(500).json({ message: 'Email service is not configured on server.' });
   }
 
-  const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-      user: GMAIL_USER,
-      pass: GMAIL_PASS,
-    },
-    connectionTimeout: 15000,
-    greetingTimeout: 15000,
-    socketTimeout: 20000,
-  });
-
   const mailOptions = {
     from: GMAIL_USER,
     to: GMAIL_USER,
@@ -47,8 +39,34 @@ app.post('/send-email', async (req, res) => {
   };
 
   try {
-    await transporter.sendMail(mailOptions);
-    return res.status(200).json({ message: 'Email sent successfully!' });
+    let lastError;
+
+    for (const config of smtpConfigs) {
+      const transporter = nodemailer.createTransport({
+        ...config,
+        auth: {
+          user: GMAIL_USER,
+          pass: GMAIL_PASS,
+        },
+        connectionTimeout: 15000,
+        greetingTimeout: 15000,
+        socketTimeout: 20000,
+      });
+
+      try {
+        await transporter.sendMail(mailOptions);
+        return res.status(200).json({ message: 'Email sent successfully!' });
+      } catch (error) {
+        lastError = error;
+        console.error(
+          `Email send failed via ${config.host}:${config.port}`,
+          error?.code || '',
+          error?.message || error
+        );
+      }
+    }
+
+    throw lastError || new Error('Unknown SMTP error');
   } catch (error) {
     console.error('Email send error:', error?.code || '', error?.message || error);
 
