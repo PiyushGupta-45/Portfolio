@@ -1,38 +1,97 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../Navbar/logo.jpg";
 
 const Home = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-slate-950 text-white px-4">
-      <div className="bg-slate-900/50 p-12 rounded-3xl shadow-2xl shadow-violet-500/10 text-center max-w-3xl w-full border border-slate-800 backdrop-blur-xl transition-all duration-500 hover:border-violet-500/30">
-        <h1 className="text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 mb-6 pb-2 tracking-tight">
-          Piyush Gupta
-        </h1>
-        <p className="text-slate-400 text-lg md:text-xl mb-10 font-light leading-relaxed">
-          Full-Stack Developer | <span className="text-violet-400 font-medium">4th Year Student</span> | Crafting Digital Experiences
-        </p>
-        <div className="flex flex-col md:flex-row justify-center gap-5 mb-10">
-          <Link to='/work'
-            className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-semibold py-3 px-8 rounded-xl shadow-lg shadow-violet-500/25 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
-          >
-            Type of Work
-          </Link>
-          <Link to='/contact'
-            className="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold py-3 px-8 rounded-xl shadow-md transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
-          >
-            Contact Me
-          </Link>
-        </div>
-        <div className="flex justify-center gap-8 pt-6 border-t border-slate-800/50">
-          <a href="https://www.linkedin.com/in/piyush-gupta4321/" target="_blank" rel="noreferrer" className="text-slate-500 hover:text-blue-500 transition-all duration-300 text-3xl transform hover:scale-110">
-            <i className="fab fa-linkedin"></i> LinkedIn
-          </a>
-          <a href="https://github.com/PiyushGupta-45" target="_blank" rel="noreferrer" className="text-slate-500 hover:text-white transition-all duration-300 text-3xl transform hover:scale-110">
-            <i className="fab fa-github"></i> GitHub
-          </a>
-        </div>
+    <main className="home-page">
+      <div className="home-glow" aria-hidden="true">
+        <div className="home-glow-left" />
+        <div className="home-glow-right" />
+        <div className="home-glow-bottom" />
       </div>
-    </div>
+
+      <section className="home-hero">
+        <p className="home-badge">
+          Open to Internships 2026
+        </p>
+
+        <div className="home-title-wrap">
+          <h1 className="home-title">
+            Hi, I&apos;m Piyush.
+            <br />
+            I build{" "}
+            <span className="home-title-accent">
+              Web Products
+            </span>
+          </h1>
+          <img
+            src={logo}
+            alt="profile"
+            className="home-polaroid"
+          />
+        </div>
+
+        <p className="home-subtitle">
+          I design and develop performant full-stack apps with clean UX, stable
+          architecture, and details that feel intentional.
+        </p>
+
+        <div className="home-actions">
+          <Link
+            to="/contact"
+            className="home-btn home-btn-primary"
+          >
+            Start a Project
+          </Link>
+          <Link
+            to="/work"
+            className="home-btn home-btn-secondary"
+          >
+            See Case Studies
+          </Link>
+        </div>
+      </section>
+
+      <div className="home-footer">
+        <div className="home-social">
+          <a
+            href="https://www.linkedin.com/in/piyush-gupta4321/"
+            target="_blank"
+            rel="noreferrer"
+            className="home-social-link"
+          >
+            Linkedin
+          </a>
+          <a
+            href="https://github.com/PiyushGupta-45"
+            target="_blank"
+            rel="noreferrer"
+            className="home-social-link"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://x.com"
+            target="_blank"
+            rel="noreferrer"
+            className="home-social-link"
+          >
+            Twitter
+          </a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noreferrer"
+            className="home-social-link"
+          >
+            Instagram
+          </a>
+        </div>
+
+        <span className="home-discover">Scroll -&gt;</span>
+      </div>
+    </main>
   );
 };
 

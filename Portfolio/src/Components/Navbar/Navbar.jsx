@@ -2,27 +2,32 @@ import React from "react";
 import logo from "./logo.jpg";
 import { Link, NavLink } from "react-router-dom";
 
+const CONTACT_EMAIL = (import.meta.env.VITE_CONTACT_EMAIL || "your@email.com").trim();
+
 const Navbar = () => {
-
   return (
-    <header className="fixed w-full z-50 top-0 bg-slate-950/80 backdrop-blur-md border-b border-slate-800 transition-colors duration-500">
-      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
-
-        {/* Logo on the Left */}
-        <Link to="/">
+    <header className="site-header">
+      <nav className="site-nav">
+        <Link to="/" className="site-brand">
           <img
             src={logo}
-            className="w-12 h-12 rounded-full object-cover ring-2 ring-violet-500 shadow-lg shadow-violet-500/20 transition-transform duration-300 ease-in-out hover:scale-110"
+            className="brand-avatar"
             alt="logo"
           />
+          <div className="brand-meta">
+            <p className="brand-name">
+              Piyush Gupta
+            </p>
+            <p className="brand-location">
+              Lucknow, IN
+            </p>
+          </div>
         </Link>
 
-        {/* Navigation Links - Centered */}
-        <div className="flex-grow flex justify-center space-x-12 text-lg font-medium">
+        <div className="site-links">
           <NavLink
             className={({ isActive }) =>
-              `relative transition-colors duration-300 ${isActive ? "text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" : "text-slate-400 hover:text-white"
-              }`
+              `site-link ${isActive ? "site-link-active" : ""}`
             }
             to="/about"
           >
@@ -30,8 +35,7 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) =>
-              `relative transition-colors duration-300 ${isActive ? "text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" : "text-slate-400 hover:text-white"
-              }`
+              `transition-colors duration-300 ${isActive ? "text-white" : "hover:text-white"}`
             }
             to="/work"
           >
@@ -39,8 +43,7 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) =>
-              `relative transition-colors duration-300 ${isActive ? "text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" : "text-slate-400 hover:text-white"
-              }`
+              `transition-colors duration-300 ${isActive ? "text-white" : "hover:text-white"}`
             }
             to="/contact"
           >
@@ -48,7 +51,21 @@ const Navbar = () => {
           </NavLink>
         </div>
 
-
+        <div className="site-right">
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="site-email"
+          >
+            {CONTACT_EMAIL}
+          </a>
+          <button
+            type="button"
+            aria-label="Availability"
+            className="site-status"
+          >
+            ON
+          </button>
+        </div>
       </nav>
     </header>
   );
