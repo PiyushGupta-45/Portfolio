@@ -3,24 +3,26 @@ import { Link } from "react-router-dom";
 
 const About = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-950 text-white px-6">
-      <div className="max-w-3xl text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400">About Me</h1>
-        <p className="text-lg md:text-xl text-slate-300 leading-relaxed">
-          Hi! I'm <span className="text-cyan-400 font-semibold">Piyush Gupta</span>, a passionate Full-Stack Developer and a 3rd-year student. I love building
-          modern web applications that solve real-world problems. My expertise includes MERN Stack,
-          and I am constantly learning new technologies to stay updated in the ever-evolving tech space.
+    <section className="page-shell page-about">
+      <div className="page-card about-card page-animate">
+        <p className="page-kicker">About</p>
+        <h1 className="page-title">Crafting robust full-stack products</h1>
+        <p className="page-text">
+          Hi! I&apos;m <span className="text-accent">Piyush Gupta</span>, a passionate Full Stack
+          Developer. I love building modern applications that solve real-world
+          problems with practical architecture and clean user experiences.
         </p>
-        <p className="mt-6 text-lg md:text-xl text-slate-300 leading-relaxed">
-          Beyond coding, I enjoy contributing to open-source projects, exploring new frameworks,
-          and collaborating with like-minded developers. I'm always excited to work on innovative projects
-          that challenge me and help me grow.
+        <p className="page-text">
+          I work across React, Flutter, Node.js, and backend systems while continuously
+          learning new tools and patterns. I enjoy collaborating on challenging products
+          and shipping features that create measurable impact.
         </p>
-        <div className="mt-10">
-          <Link to="/work" className="px-8 py-3 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 rounded-xl text-white text-lg font-semibold transition-all shadow-lg shadow-violet-500/25 transform hover:-translate-y-1">View My Work</Link>
+        <div className="page-actions">
+          <Link to="/work" className="page-btn page-btn-primary">View My Work</Link>
+          <Link to="/contact" className="page-btn page-btn-secondary">Work With Me</Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

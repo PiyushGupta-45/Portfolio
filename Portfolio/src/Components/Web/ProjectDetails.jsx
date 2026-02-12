@@ -81,7 +81,7 @@ Tech Stack: React.js, Node.js, Express.js, MongoDB, Tailwind CSS, Redux Toolkit`
 - Share medical information for immediate response
 - Enable SOS activation via quick tap or voice command
 
-It’s built for quick and reliable help in critical situations.
+It is built for quick and reliable help in critical situations.
 
 Tech Stack: Flutter, Firebase, Google Maps API, Spring Boot`,
     github: "https://github.com/PiyushGupta-45/Life-Saver",
@@ -95,7 +95,7 @@ Tech Stack: Flutter, Firebase, Google Maps API, Spring Boot`,
 
 - Voice-activated SOS system
 - Real-time location tracking
-- Emergency contact notification with location & timestamp
+- Emergency contact notification with location and timestamp
 
 The app is optimized for quick access and ease of use.
 
@@ -125,7 +125,7 @@ Tech Stack: React.js, LocalStorage, Tailwind CSS`,
     title: "Expense Tracker",
     description: `A modern Expense Tracker application to help you manage your personal finances. Key features include:
 
-- Categorize expenses (e.g., Groceries, Utilities, Entertainment, etc...)
+- Categorize expenses (e.g., Groceries, Utilities, Entertainment)
 - Daily and monthly spending analysis
 - Visualization of spending habits with charts and graphs
 
@@ -137,16 +137,16 @@ Tech Stack: HTML, Chart.js, LocalStorage, Tailwind CSS`,
     type: "web",
   },
 
-  "Ecommerce": {
+  Ecommerce: {
     title: "Ecommerce Website",
     description: `A fully functional E-commerce platform designed for a seamless shopping experience.
 
 Key Features:
-- User Authentication: Secure login/signup with JWT.
-- Product Management: Browse, search, and filter products with ease.
-- Shopping Cart: Add/remove items and adjust quantities dynamically.
-- Payment Gateway: Integrated generic payment processing flow.
-- Admin Panel: Manage products, orders, and users.
+- User Authentication: Secure login and signup with JWT
+- Product Management: Browse, search, and filter products
+- Shopping Cart: Add/remove items and adjust quantities dynamically
+- Payment Gateway: Integrated payment processing flow
+- Admin Panel: Manage products, orders, and users
 
 This project showcases a complete commercial application flow from product discovery to checkout.
 
@@ -163,52 +163,38 @@ const ProjectDetails = () => {
 
   if (!project) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-slate-950 text-white">
-        <h2 className="text-3xl font-bold text-slate-300">Project not found!</h2>
-        <Link to="/work" className="text-violet-400 hover:text-violet-300 hover:underline mt-4 text-lg">Go back to Work</Link>
-      </div>
+      <section className="page-shell page-project-details">
+        <div className="page-card project-details-card page-animate">
+          <h1 className="page-title">Project not found</h1>
+          <Link to="/work" className="page-btn page-btn-secondary">Go back to work</Link>
+        </div>
+      </section>
     );
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white py-20 px-6 flex flex-col items-center">
-      <h1 className="text-4xl md:text-5xl pb-2 font-extrabold mb-5 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400 text-center">{project.title}</h1>
+    <section className="page-shell page-project-details">
+      <article className="page-card project-details-card page-animate">
+        <p className="page-kicker">Project Details</p>
+        <h1 className="page-title">{project.title}</h1>
 
-      {/* Image gallery placeholder if needed later */}
+        <p className="project-description">{project.description}</p>
 
-      <div className="bg-slate-900/50 backdrop-blur-md border border-slate-800 p-8 md:p-12 rounded-2xl max-w-4xl w-full shadow-2xl">
-        <div className="prose prose-invert max-w-none">
-          <p className="text-slate-300 text-lg md:text-xl whitespace-pre-line leading-relaxed">{project.description}</p>
-        </div>
-
-        <div className="mt-12 flex flex-col md:flex-row items-center gap-6 border-t border-slate-800 pt-8">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noreferrer"
-            className="px-8 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl transition-all border border-slate-700 hover:border-violet-500 hover:text-violet-400 flex items-center gap-2 font-medium"
-          >
-            <i className="fab fa-github"></i> View Source Code on GitHub
+        <div className="project-actions">
+          <a href={project.github} target="_blank" rel="noreferrer" className="page-btn page-btn-secondary">
+            View Source Code
           </a>
 
-          {project.demo && (
-            <a
-              href={project.demo}
-              target="_blank"
-              rel="noreferrer"
-              className="px-8 py-3 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white rounded-xl transition-all shadow-lg shadow-violet-500/25 flex items-center gap-2 font-medium transform hover:-translate-y-1"
-            >
-              <i className={project.type === "app" ? "fas fa-download" : "fas fa-external-link-alt"}></i>
+          {project.demo && project.demo !== "#" && (
+            <a href={project.demo} target="_blank" rel="noreferrer" className="page-btn page-btn-primary">
               {project.type === "app" ? "Download App" : "Visit Live Site"}
             </a>
           )}
 
-          <Link to="/work" className="text-slate-400 hover:text-white transition-colors flex items-center gap-2">
-            ← Back to Work
-          </Link>
+          <Link to="/work" className="page-btn page-btn-ghost">Back to Work</Link>
         </div>
-      </div>
-    </div>
+      </article>
+    </section>
   );
 };
 

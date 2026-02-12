@@ -77,59 +77,62 @@ const projects = [
 
 const Work = () => {
   const [selectedCategory, setSelectedCategory] = React.useState(null);
-
-  const filteredProjects = projects.filter(project => project.category === selectedCategory);
+  const filteredProjects = projects.filter((project) => project.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white py-25 px-6">
-      <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400">View My Work</h2>
+    <section className="page-shell page-work">
+      <div className="page-card work-card page-animate">
+        <p className="page-kicker">Projects</p>
+        <h1 className="page-title">View My Work</h1>
 
-      {!selectedCategory ? (
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <div
-            onClick={() => setSelectedCategory("React Projects")}
-            className="bg-slate-900/50 backdrop-blur-sm p-12 rounded-2xl shadow-xl cursor-pointer transform hover:scale-105 transition-all text-center border border-slate-800 hover:border-cyan-400/50 group"
-          >
-            <h3 className="text-4xl font-bold text-cyan-400 mb-4 group-hover:text-cyan-300 transition-colors">React Projects</h3>
-            <p className="text-slate-400 text-lg group-hover:text-slate-300">Web applications built with React.js</p>
-          </div>
+        {!selectedCategory ? (
+          <div className="work-category-grid">
+            <button
+              type="button"
+              onClick={() => setSelectedCategory("React Projects")}
+              className="work-category-tile"
+            >
+              <h3>React Projects</h3>
+              <p>Web applications built with React.js</p>
+            </button>
 
-          <div
-            onClick={() => setSelectedCategory("Flutter Apps")}
-            className="bg-slate-900/50 backdrop-blur-sm p-12 rounded-2xl shadow-xl cursor-pointer transform hover:scale-105 transition-all text-center border border-slate-800 hover:border-violet-400/50 group"
-          >
-            <h3 className="text-4xl font-bold text-violet-400 mb-4 group-hover:text-violet-300 transition-colors">Flutter Apps</h3>
-            <p className="text-slate-400 text-lg group-hover:text-slate-300">Mobile applications built with Flutter</p>
+            <button
+              type="button"
+              onClick={() => setSelectedCategory("Flutter Apps")}
+              className="work-category-tile"
+            >
+              <h3>Flutter Apps</h3>
+              <p>Mobile applications built with Flutter</p>
+            </button>
           </div>
-        </div>
-      ) : (
-        <>
-          <button
-            onClick={() => setSelectedCategory(null)}
-            className="mb-8 px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl transition-all flex items-center gap-2 mx-auto md:mx-0 border border-slate-700 hover:border-slate-500"
-          >
-            ← Back to Categories
-          </button>
+        ) : (
+          <>
+            <button
+              type="button"
+              onClick={() => setSelectedCategory(null)}
+              className="work-back-btn"
+            >
+              Back to categories
+            </button>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto ">
-            {filteredProjects.map((project, index) => (
-              <Link to={`/work/${project.slug}`} key={index}>
-                <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-lg transition-all transform hover:scale-105 hover:shadow-violet-500/10 hover:border-slate-700 h-full flex flex-col">
-                  <div className="aspect-video w-full overflow-hidden rounded-xl mb-6 bg-slate-800">
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3 text-slate-100">{project.title}</h3>
-                  <p className="text-slate-400 line-clamp-3 mb-6 flex-grow">{project.description}</p>
-                  <span className="text-cyan-400 font-medium group-hover:underline flex items-center gap-2">
-                    View Details →
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </>
-      )}
-    </div>
+            <div className="work-project-grid">
+              {filteredProjects.map((project) => (
+                <Link to={`/work/${project.slug}`} key={project.slug} className="work-project-link">
+                  <article className="work-project-card">
+                    <div className="work-image-wrap">
+                      <img src={project.image} alt={project.title} className="work-image" />
+                    </div>
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
+                    <span>View Details -&gt;</span>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    </section>
   );
 };
 

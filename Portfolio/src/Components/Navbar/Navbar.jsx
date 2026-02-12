@@ -5,6 +5,17 @@ import { Link, NavLink } from "react-router-dom";
 const CONTACT_EMAIL = (import.meta.env.VITE_CONTACT_EMAIL || "your@email.com").trim();
 
 const Navbar = () => {
+  const rotatingMeta = ["Gurugram, IND", "Full Stack Developer"];
+  const [metaIndex, setMetaIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setMetaIndex((prev) => (prev + 1) % rotatingMeta.length);
+    }, 2500);
+
+    return () => clearInterval(timer);
+  }, [rotatingMeta.length]);
+
   return (
     <header className="site-header">
       <nav className="site-nav">
@@ -18,8 +29,15 @@ const Navbar = () => {
             <p className="brand-name">
               Piyush Gupta
             </p>
-            <p className="brand-location">
-              Lucknow, IN
+            <p className="brand-location" aria-live="polite">
+              {rotatingMeta.map((item, index) => (
+                <span
+                  key={item}
+                  className={`brand-location-text ${metaIndex === index ? "brand-location-text-active" : ""}`}
+                >
+                  {item}
+                </span>
+              ))}
             </p>
           </div>
         </Link>
@@ -35,7 +53,7 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) =>
-              `transition-colors duration-300 ${isActive ? "text-white" : "hover:text-white"}`
+              `site-link ${isActive ? "site-link-active" : ""}`
             }
             to="/work"
           >
@@ -43,7 +61,7 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) =>
-              `transition-colors duration-300 ${isActive ? "text-white" : "hover:text-white"}`
+              `site-link ${isActive ? "site-link-active" : ""}`
             }
             to="/contact"
           >
@@ -58,13 +76,10 @@ const Navbar = () => {
           >
             {CONTACT_EMAIL}
           </a>
-          <button
-            type="button"
-            aria-label="Availability"
-            className="site-status"
-          >
-            ON
-          </button>
+          <span className="site-availability" aria-label="Availability">
+            <span className="site-availability-dot" />
+            Available
+          </span>
         </div>
       </nav>
     </header>
