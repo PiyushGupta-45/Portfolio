@@ -75,7 +75,7 @@ const ProjectDetails = () => {
   if (!project) {
     return (
       <section className='relative min-h-screen bg-[#020409] px-4 pt-[8.2rem] pb-4 text-[#f3f5fb]'>
-        <div className='mx-auto w-full max-w-[960px] rounded-[20px] border border-[#24314e] bg-[linear-gradient(160deg,rgba(9,14,28,0.86)_0%,rgba(7,11,22,0.92)_100%)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_20px_50px_rgba(0,0,0,0.45)]'>
+        <div className='anim-fade-up mx-auto w-full max-w-[960px] rounded-[20px] border border-[#24314e] bg-[linear-gradient(160deg,rgba(9,14,28,0.86)_0%,rgba(7,11,22,0.92)_100%)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_20px_50px_rgba(0,0,0,0.45)]'>
           <h1 className='m-0 font-[Cormorant_Garamond] text-[clamp(2rem,5vw,3.8rem)] text-[#f1f4fc]'>Project not found</h1>
           <Link to='/work' className={`${btnBase} mt-4 inline-block border border-[#324b7a] bg-[rgba(10,16,31,0.92)] text-[#ecf2ff] hover:border-[#4e74bc]`}>Go back to work</Link>
         </div>
@@ -85,13 +85,13 @@ const ProjectDetails = () => {
 
   return (
     <section className='relative min-h-screen bg-[#020409] px-4 pt-[8.2rem] pb-4 text-[#f3f5fb]'>
-      <article className='mx-auto w-full max-w-[960px] rounded-[20px] border border-[#24314e] bg-[linear-gradient(160deg,rgba(9,14,28,0.86)_0%,rgba(7,11,22,0.92)_100%)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_20px_50px_rgba(0,0,0,0.45)]'>
+      <article className='anim-fade-up mx-auto w-full max-w-[960px] rounded-[20px] border border-[#24314e] bg-[linear-gradient(160deg,rgba(9,14,28,0.86)_0%,rgba(7,11,22,0.92)_100%)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_20px_50px_rgba(0,0,0,0.45)]'>
         <p className='mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#8f9bb7]'>Project Details</p>
         <h1 className='m-0 font-[Cormorant_Garamond] text-[clamp(2rem,5vw,3.8rem)] text-[#f1f4fc]'>{project.title}</h1>
 
-        <p className='mt-4 whitespace-pre-line rounded-xl border border-[#27395f] bg-[rgba(8,13,26,0.78)] p-4 leading-[1.6] text-[#b2bad0]'>{project.description}</p>
+        <p className='anim-fade-up anim-delay-1 mt-4 whitespace-pre-line rounded-xl border border-[#27395f] bg-[rgba(8,13,26,0.78)] p-4 leading-[1.6] text-[#b2bad0]'>{project.description}</p>
 
-        <div className='mt-4 flex flex-wrap gap-3 max-[720px]:flex-col'>
+        <div className='anim-fade-up anim-delay-2 mt-4 flex flex-wrap gap-3 max-[720px]:flex-col'>
           <a href={project.github} target='_blank' rel='noreferrer' className={`${btnBase} border border-[#324b7a] bg-[rgba(10,16,31,0.92)] text-[#ecf2ff] hover:border-[#4e74bc]`}>
             View Source Code
           </a>

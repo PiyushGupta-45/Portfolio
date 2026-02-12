@@ -60,12 +60,12 @@ const Contact = () => {
 
   return (
     <section className='relative min-h-screen bg-[#020409] px-4 pt-[8.2rem] pb-4 text-[#f3f5fb]'>
-      <div className='mx-auto w-full max-w-[760px] rounded-[20px] border border-[#24314e] bg-[linear-gradient(160deg,rgba(9,14,28,0.86)_0%,rgba(7,11,22,0.92)_100%)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_20px_50px_rgba(0,0,0,0.45)]'>
+      <div className='anim-fade-up mx-auto w-full max-w-[760px] rounded-[20px] border border-[#24314e] bg-[linear-gradient(160deg,rgba(9,14,28,0.86)_0%,rgba(7,11,22,0.92)_100%)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_20px_50px_rgba(0,0,0,0.45)]'>
         <p className='mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#8f9bb7]'>Contact</p>
         <h1 className='m-0 font-[Cormorant_Garamond] text-[clamp(2rem,5vw,3.8rem)] leading-[1.02] text-[#f1f4fc]'>Let&apos;s build something great</h1>
         <p className='mt-3 text-[clamp(1rem,1.4vw,1.2rem)] leading-[1.65] text-[#aeb6cb]'>Enter your details and I will get back to you as soon as possible.</p>
 
-        <form onSubmit={handleSubmit} className='mt-5 grid gap-2'>
+        <form onSubmit={handleSubmit} className='anim-fade-up anim-delay-2 mt-5 grid gap-2'>
           <label htmlFor='name' className='text-xs font-semibold uppercase tracking-[0.04em] text-[#c9d3e7]'>Full Name</label>
           <input id='name' name='name' value={formData.name} onChange={handleChange} type='text' placeholder='e.g. John Doe' className={inputClass} required />
 
@@ -75,7 +75,7 @@ const Contact = () => {
           <label htmlFor='email' className='text-xs font-semibold uppercase tracking-[0.04em] text-[#c9d3e7]'>Email Address</label>
           <input id='email' name='email' value={formData.email} onChange={handleChange} type='email' placeholder='e.g. john@example.com' className={inputClass} required />
 
-          <button type='submit' className='mt-2 rounded-[10px] border border-transparent bg-[#2f72ff] px-5 py-3 text-[0.96rem] font-bold text-white shadow-[0_10px_20px_rgba(47,114,255,0.28)] transition hover:-translate-y-px hover:bg-[#2864e1]'>Send Message</button>
+          <button type='submit' className='anim-glow mt-2 rounded-[10px] border border-transparent bg-[#2f72ff] px-5 py-3 text-[0.96rem] font-bold text-white shadow-[0_10px_20px_rgba(47,114,255,0.28)] transition hover:-translate-y-px hover:bg-[#2864e1]'>Send Message</button>
         </form>
 
         {message && (

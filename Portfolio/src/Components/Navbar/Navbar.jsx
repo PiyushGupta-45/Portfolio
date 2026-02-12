@@ -24,10 +24,10 @@ const Navbar = () => {
   }, [rotatingMeta.length])
 
   return (
-    <header className='fixed top-0 z-50 w-full bg-[rgba(3,5,10,0.7)] px-4 pt-3 pb-2 backdrop-blur-md'>
-      <nav className='mx-auto flex h-[5.3rem] w-full max-w-[1600px] items-center justify-between rounded-[14px] border border-[#24314e] bg-[rgba(8,13,25,0.8)] px-4'>
-        <Link to='/' className='flex min-w-0 items-center gap-3 no-underline'>
-          <img src={logo} className='h-[2.9rem] w-[2.9rem] rounded-[10px] border border-[#355080] object-cover' alt='logo' />
+    <header className='anim-fade-in fixed top-0 z-50 w-full bg-[rgba(3,5,10,0.7)] px-4 pt-3 pb-2 backdrop-blur-md'>
+      <nav className='anim-scale-in mx-auto flex h-[5.3rem] w-full max-w-[1600px] items-center justify-between rounded-[14px] border border-[#24314e] bg-[rgba(8,13,25,0.8)] px-4'>
+        <Link to='/' className='anim-fade-left flex min-w-0 items-center gap-3 no-underline'>
+          <img src={logo} className='anim-float h-[2.9rem] w-[2.9rem] rounded-[10px] border border-[#355080] object-cover' alt='logo' />
           <div className='w-[19ch] min-w-0 max-sm:hidden'>
             <p className='m-0 text-[1.02rem] font-bold tracking-[0.01em] text-[#f3f5fb]'>Piyush Gupta</p>
             <p className='relative m-0 mt-0.5 h-[1.25em] overflow-hidden text-[0.9rem]' aria-live='polite'>
@@ -45,20 +45,20 @@ const Navbar = () => {
           </div>
         </Link>
 
-        <div className='flex items-center gap-4 max-[1100px]:hidden'>
+        <div className='anim-fade-up anim-delay-2 flex items-center gap-4 max-[1100px]:hidden'>
           <NavLink className={navClass} to='/about'>About</NavLink>
           <NavLink className={navClass} to='/work'>Projects</NavLink>
           <NavLink className={navClass} to='/contact'>Contact</NavLink>
         </div>
 
-        <div className='flex items-center gap-2.5'>
+        <div className='anim-fade-right anim-delay-3 flex items-center gap-2.5'>
           <a
             href={`mailto:${CONTACT_EMAIL}`}
             className='rounded-[9px] border border-[#30446d] px-3 py-2 text-[0.93rem] text-[#d8deec] no-underline transition-colors hover:border-[#45639f] hover:text-white max-[1100px]:hidden'
           >
             {CONTACT_EMAIL}
           </a>
-          <span className='inline-flex items-center gap-2 rounded-[9px] border border-[#30446d] bg-[rgba(11,18,33,0.9)] px-3 py-2 text-[0.82rem] font-semibold tracking-[0.02em] text-[#eaf0ff]'>
+          <span className='anim-glow inline-flex items-center gap-2 rounded-[9px] border border-[#30446d] bg-[rgba(11,18,33,0.9)] px-3 py-2 text-[0.82rem] font-semibold tracking-[0.02em] text-[#eaf0ff]'>
             <span className='h-2 w-2 rounded-full bg-[#5bffab] shadow-[0_0_0_6px_rgba(91,255,171,0.12)]' />
             Available
           </span>

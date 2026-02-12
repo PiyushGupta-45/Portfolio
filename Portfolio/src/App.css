@@ -1,1 +1,140 @@
-/* migrated to Tailwind utility classes in components */
+/* Animation-only layer used with Tailwind utility classes */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(47, 114, 255, 0.16);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(47, 114, 255, 0.26);
+  }
+}
+
+.anim-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.65s ease-out forwards;
+}
+
+.anim-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.72s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+.anim-fade-left {
+  opacity: 0;
+  animation: fadeLeft 0.72s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+.anim-fade-right {
+  opacity: 0;
+  animation: fadeRight 0.72s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+.anim-scale-in {
+  opacity: 0;
+  animation: scaleIn 0.62s ease-out forwards;
+}
+
+.anim-float {
+  animation: floatY 5.4s ease-in-out infinite;
+}
+
+.anim-glow {
+  animation: pulseGlow 3.4s ease-in-out infinite;
+}
+
+.anim-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.anim-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.anim-delay-3 {
+  animation-delay: 0.3s;
+}
+
+.anim-delay-4 {
+  animation-delay: 0.4s;
+}
+
+.anim-delay-5 {
+  animation-delay: 0.5s;
+}
+
+.anim-delay-6 {
+  animation-delay: 0.6s;
+}
