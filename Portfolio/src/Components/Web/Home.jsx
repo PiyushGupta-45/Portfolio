@@ -18,7 +18,7 @@ const Home = () => {
             Hi, I&apos;m Piyush
             <br />
             <span className='text-[#cfd6e8]'>building</span>{' '}
-            <span className='bg-[linear-gradient(90deg,#79adff_0%,#2f72ff_55%,#2459d9_100%)] bg-clip-text font-[Teko] font-semibold uppercase tracking-[0.04em] text-transparent'>
+            <span data-ray='Web Products' className='anim-ray-text font-[Teko] font-semibold uppercase tracking-[0.04em]'>
               Web Products
             </span>
           </h1>
@@ -26,7 +26,7 @@ const Home = () => {
 
         <aside className='grid h-full grid-rows-[1fr_1.15fr_1fr_0.75fr] gap-2.5'>
           <div className='anim-fade-right anim-delay-1 flex h-full min-h-[6.8rem] items-center gap-3 rounded-2xl border border-[#293d66] bg-[rgba(8,13,25,0.82)] px-3 py-2.5'>
-            <img src={logo} alt='profile' className='h-[4.3rem] w-[4.3rem] rounded-[10px] border border-[#3a5488] object-cover' />
+            <img src={logo} alt='profile' className='anim-float h-[4.3rem] w-[4.3rem] rounded-[10px] border border-[#3a5488] object-cover' />
             <p className='m-0 text-[1.9rem] font-semibold uppercase leading-none tracking-[0.045em] text-[#cfdbf3] font-[Teko]'>Full Stack Developer</p>
           </div>
 
