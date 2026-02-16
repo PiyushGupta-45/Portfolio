@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 
-const projects = {
+export const projects = {
   'health-hub': {
     title: 'Health Hub',
     description: `Health Hub is a full-stack AI-powered fitness application that provides:\n\n- Real-time posture detection using TensorFlow\n- Personalized goal setting based on fitness metrics\n- BMR calculator and workout suggestions\n\nThis app helps users track their health effectively while leveraging AI.\n\nTech Stack: Flutter, TensorFlow, MongoDB Atlas, Spring Boot, Tailwind CSS`,

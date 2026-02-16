@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
 import logo from '../Navbar/logo.jpg'
 import healthHub from './HealthHub.png'
+import { projects } from './ProjectDetails'
+
+const healthHubDescription = projects['health-hub']?.description || ''
 
 const Home = () => {
   return (
@@ -81,21 +84,31 @@ const Home = () => {
             <p className='text-xs font-semibold uppercase tracking-[0.2em] text-[#8f9bb7]'>Showcase</p>
             <h2 className='mt-1 font-[Cormorant_Garamond] text-[clamp(1.9rem,3.2vw,3rem)] leading-none text-[#f2f6ff]'>Favorite Project</h2>
           </div>
-          <Link to='/work/health-hub-react' className='rounded-full border border-[#324b7a] bg-[rgba(10,16,31,0.92)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#dbe7ff] transition hover:-translate-y-px hover:border-[#4e74bc]'>
-            View Details
-          </Link>
+          <div className='flex flex-wrap items-center gap-2'>
+            <Link to='/work/health-hub-react' className='rounded-full border border-[#324b7a] bg-[rgba(10,16,31,0.92)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#dbe7ff] transition hover:-translate-y-px hover:border-[#4e74bc]'>
+              View Details
+            </Link>
+            <a
+              href='https://new-health-hub-web.vercel.app/'
+              target='_blank'
+              rel='noreferrer'
+              className='rounded-full border border-transparent bg-[#2f72ff] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-[0_10px_20px_rgba(47,114,255,0.28)] transition hover:-translate-y-px hover:bg-[#2864e1]'
+            >
+              View Website
+            </a>
+          </div>
         </div>
 
         <article className='anim-scale-in anim-delay-3 grid grid-cols-[1.05fr_1.25fr] gap-4 rounded-2xl border border-[#27395f] bg-[rgba(8,13,26,0.75)] p-3.5 max-[900px]:grid-cols-1'>
           <div className='overflow-hidden rounded-xl border border-[#2f4470] bg-[rgba(7,12,24,0.88)]'>
-            <img src={healthHub} alt='Health Hub project' className='h-full w-full object-cover transition duration-500 hover:scale-105' />
+            <img src={healthHub} alt='Health Hub project' className='h-120 w-200 object-cover transition duration-500 hover:scale-105' />
           </div>
 
           <div className='flex flex-col justify-between'>
             <div>
               <h3 className='text-[clamp(1.25rem,2.4vw,2rem)] font-semibold text-[#eff5ff]'>Health Hub</h3>
-              <p className='mt-2 text-[clamp(0.95rem,1.35vw,1.08rem)] leading-relaxed text-[#b5c0d8]'>
-                A complete health and wellness platform with workout tracking, nutrition planning, and progress analytics designed for daily consistency and long-term goals.
+              <p className='mt-2 whitespace-pre-line text-[clamp(0.95rem,1.35vw,1.08rem)] leading-relaxed text-[#b5c0d8]'>
+                {healthHubDescription}
               </p>
             </div>
 
