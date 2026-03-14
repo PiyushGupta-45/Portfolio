@@ -81,8 +81,8 @@ const Home = () => {
       <section className='anim-fade-up anim-delay-2 relative z-10 mx-auto w-full max-w-[1380px] rounded-[22px] border border-[#24314e] bg-[linear-gradient(160deg,rgba(10,15,28,0.85)_0%,rgba(7,11,22,0.9)_100%)] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_18px_44px_rgba(0,0,0,0.45)] sm:p-6'>
         <div className='mb-4 flex items-end justify-between gap-4'>
           <div>
-            <p className='text-xs font-semibold uppercase tracking-[0.2em] text-[#8f9bb7]'>Showcase</p>
-            <h2 className='mt-1 font-[Cormorant_Garamond] text-[clamp(1.9rem,3.2vw,3rem)] leading-none text-[#f2f6ff]'>Favorite Project</h2>
+            <p className='text-xs font-semibold uppercase tracking-[0.2em] text-[#8f9bb7]'>PROJECT SPOTLIGHT</p>
+            <h2 className='mt-1 font-[Cormorant_Garamond] text-[clamp(1.9rem,3.2vw,3rem)] leading-none text-[#f2f6ff]'>Best Project</h2>
           </div>
           <div className='flex flex-wrap items-center gap-2'>
             <Link to='/work/health-hub-react' className='rounded-full border border-[#324b7a] bg-[rgba(10,16,31,0.92)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#dbe7ff] transition hover:-translate-y-px hover:border-[#4e74bc]'>
