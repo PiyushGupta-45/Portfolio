@@ -1,94 +1,105 @@
-import { useState } from 'react'
-
-const CONTACT_EMAIL = (import.meta.env.VITE_CONTACT_EMAIL || '').trim()
-const FORM_ENDPOINT = CONTACT_EMAIL ? `https://formsubmit.co/ajax/${encodeURIComponent(CONTACT_EMAIL)}` : ''
-
-const inputClass =
-  'w-full rounded-[10px] border border-[#2d426d] bg-[rgba(8,13,26,0.86)] px-4 py-3 text-base text-[#eff4ff] outline-none transition focus:border-[#4f78c2] focus:shadow-[0_0_0_3px_rgba(47,114,255,0.16)]'
+const contactLinks = [
+  {
+    label: 'Email',
+    value: 'pgupta3883@gmail.com',
+    href: 'mailto:pgupta3883@gmail.com',
+    note: 'Best for project discussions and collaboration.',
+  },
+  {
+    label: 'Phone',
+    value: '+91 9992493816',
+    href: 'tel:+919992493816',
+    note: 'For quick conversations and urgent requirements.',
+  },
+  {
+    label: 'LinkedIn',
+    value: 'piyush-gupta-68b048388',
+    href: 'https://www.linkedin.com/in/piyush-gupta-68b048388/',
+    note: 'Professional profile, updates, and networking.',
+  },
+  {
+    label: 'GitHub',
+    value: 'PiyushGupta-45',
+    href: 'https://github.com/PiyushGupta-45',
+    note: 'Code samples, repositories, and project work.',
+  },
+]
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: '', contact: '', email: '' })
-  const [message, setMessage] = useState('')
-  const [isError, setIsError] = useState(false)
-
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    const sanitizedValue = name === 'contact' ? value.replace(/\D/g, '') : value
-
-    setMessage('')
-    setIsError(false)
-    setFormData({ ...formData, [name]: sanitizedValue })
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
-    if (!FORM_ENDPOINT) {
-      setMessage('Contact form is not configured. Set VITE_CONTACT_EMAIL in frontend env.')
-      setIsError(true)
-      return
-    }
-
-    try {
-      const res = await fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          contact: formData.contact,
-          email: formData.email,
-          _subject: 'New Portfolio Contact Submission',
-          _template: 'table',
-        }),
-      })
-      const data = await res.json().catch(() => ({}))
-
-      if (res.ok) {
-        setMessage(data.message || 'Message sent successfully!')
-        setIsError(false)
-        setFormData({ name: '', contact: '', email: '' })
-      } else {
-        setMessage(data.message || 'Failed to send. Please try again later.')
-        setIsError(true)
-      }
-    } catch (error) {
-      console.error('Error:', error)
-      setMessage('Network error. Please try again.')
-      setIsError(true)
-    }
-  }
-
   return (
-    <section className='relative min-h-screen bg-[#020409] px-4 pt-[8.2rem] pb-4 text-[#f3f5fb]'>
-      <div className='anim-fade-up mx-auto w-full max-w-[760px] rounded-[20px] border border-[#24314e] bg-[linear-gradient(160deg,rgba(9,14,28,0.86)_0%,rgba(7,11,22,0.92)_100%)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_20px_50px_rgba(0,0,0,0.45)]'>
-        <p className='mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#8f9bb7]'>Contact</p>
-        <h1 className='m-0 font-[Cormorant_Garamond] text-[clamp(2rem,5vw,3.8rem)] leading-[1.02] text-[#f1f4fc]'>Let&apos;s build something great</h1>
-        <p className='mt-3 text-[clamp(1rem,1.4vw,1.2rem)] leading-[1.65] text-[#aeb6cb]'>Enter your details and I will get back to you as soon as possible.</p>
-
-        <form onSubmit={handleSubmit} className='anim-fade-up anim-delay-2 mt-5 grid gap-2'>
-          <label htmlFor='name' className='text-xs font-semibold uppercase tracking-[0.04em] text-[#c9d3e7]'>Full Name</label>
-          <input id='name' name='name' value={formData.name} onChange={handleChange} type='text' placeholder='e.g. John Doe' className={inputClass} required />
-
-          <label htmlFor='contact' className='text-xs font-semibold uppercase tracking-[0.04em] text-[#c9d3e7]'>Contact Number</label>
-          <input id='contact' name='contact' value={formData.contact} onChange={handleChange} type='text' inputMode='numeric' placeholder='e.g. 9876543210' className={inputClass} required />
-
-          <label htmlFor='email' className='text-xs font-semibold uppercase tracking-[0.04em] text-[#c9d3e7]'>Email Address</label>
-          <input id='email' name='email' value={formData.email} onChange={handleChange} type='email' placeholder='e.g. john@example.com' className={inputClass} required />
-
-          <button type='submit' className='anim-glow mt-2 rounded-[10px] border border-transparent bg-[#2f72ff] px-5 py-3 text-[0.96rem] font-bold text-white shadow-[0_10px_20px_rgba(47,114,255,0.28)] transition hover:-translate-y-px hover:bg-[#2864e1]'>Send Message</button>
-        </form>
-
-        {message && (
-          <div
-            className={`mt-4 rounded-[10px] border px-4 py-3 text-[0.95rem] ${
-              isError ? 'border-[rgba(255,102,131,0.3)] bg-[rgba(125,26,45,0.2)] text-[#ff9ca7]' : 'border-[rgba(98,230,156,0.3)] bg-[rgba(27,90,52,0.2)] text-[#72f7ad]'
-            }`}
-          >
-            {message}
-          </div>
-        )}
+    <main className='relative min-h-screen overflow-hidden bg-[#020409] px-4 pb-10 pt-[7.6rem] text-[#f3f5fb] sm:px-8 lg:px-12 xl:px-16'>
+      <div className='pointer-events-none fixed inset-0'>
+        <div className='absolute -left-20 top-24 h-96 w-96 rounded-full bg-[rgba(41,98,225,0.34)] blur-[95px]' />
+        <div className='absolute -right-12 top-64 h-80 w-80 rounded-full bg-[rgba(47,114,255,0.29)] blur-[90px]' />
+        <div className='absolute bottom-[-6rem] left-1/2 h-56 w-[32rem] -translate-x-1/2 rounded-full bg-[rgba(47,114,255,0.14)] blur-[100px]' />
       </div>
-    </section>
+
+      <section className='relative z-10 mx-auto grid w-full max-w-[1380px] gap-6 lg:grid-cols-[0.95fr_1.05fr]'>
+        <div className='anim-fade-left rounded-[26px] border border-[#24314e] bg-[linear-gradient(160deg,rgba(10,15,28,0.86)_0%,rgba(7,11,22,0.9)_100%)] px-6 py-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_20px_50px_rgba(0,0,0,0.45)] sm:px-8 sm:py-9'>
+          <p className='mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#8f9bb7]'>Contact</p>
+          <h1 className='m-0 font-[Cormorant_Garamond] text-[clamp(2.4rem,6vw,5.4rem)] leading-[0.92] text-[#f1f4fc]'>
+            Let&apos;s talk
+            <br />
+            about your
+            <br />
+            next build
+          </h1>
+
+          <p className='mt-5 max-w-[34rem] text-[clamp(1rem,1.35vw,1.15rem)] leading-8 text-[#aeb6cb]'>
+            The contact form is removed, so the page now focuses on direct ways to reach me. If you have a project, internship, freelance role, or collaboration idea, use any of the options here.
+          </p>
+
+          <div className='anim-fade-up anim-delay-2 mt-6 flex flex-wrap gap-3'>
+            <a
+              href='mailto:pgupta3883@gmail.com'
+              className='anim-glow rounded-[12px] border border-transparent bg-[#2f72ff] px-5 py-3 text-[0.96rem] font-bold text-white shadow-[0_10px_20px_rgba(47,114,255,0.28)] transition hover:-translate-y-px hover:bg-[#2864e1]'
+            >
+              Email Me
+            </a>
+            <a
+              href='https://www.linkedin.com/in/piyush-gupta4321/'
+              target='_blank'
+              rel='noreferrer'
+              className='rounded-[12px] border border-[#324b7a] bg-[rgba(10,16,31,0.92)] px-5 py-3 text-[0.96rem] font-bold text-[#ecf2ff] transition hover:-translate-y-px hover:border-[#4e74bc]'
+            >
+              Open LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <div className='grid gap-4'>
+          {contactLinks.map((item, index) => (
+            <a
+              key={item.label}
+              href={item.href}
+              target={item.href.startsWith('http') ? '_blank' : undefined}
+              rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
+              className='anim-fade-right rounded-[22px] border border-[#27395f] bg-[rgba(8,13,26,0.76)] p-5 no-underline shadow-[inset_0_1px_0_rgba(255,255,255,0.03),0_16px_38px_rgba(0,0,0,0.28)] transition hover:-translate-y-1 hover:border-[#4a6fb6] hover:shadow-[0_18px_36px_rgba(0,0,0,0.34)]'
+              style={{ animationDelay: `${0.1 * (index + 1)}s` }}
+            >
+              <div className='flex items-start justify-between gap-4'>
+                <div>
+                  <p className='text-xs font-semibold uppercase tracking-[0.18em] text-[#8f9bb7]'>{item.label}</p>
+                  <h2 className='mt-2 text-[clamp(1.2rem,2.2vw,1.7rem)] font-semibold text-[#eef4ff]'>{item.value}</h2>
+                </div>
+                <span className='rounded-full border border-[#314a7a] bg-[rgba(10,16,31,0.82)] px-3 py-1.5 text-[0.72rem] uppercase tracking-[0.14em] text-[#cdd9f2]'>
+                  Reach Out
+                </span>
+              </div>
+
+              <p className='mt-3 text-[0.98rem] leading-7 text-[#aeb6cb]'>{item.note}</p>
+            </a>
+          ))}
+
+          <div className='anim-fade-up anim-delay-4 rounded-[22px] border border-[#2b3f68] bg-[rgba(8,13,25,0.8)] p-5'>
+            <p className='text-xs font-semibold uppercase tracking-[0.18em] text-[#8f9bb7]'>Availability</p>
+            <p className='mt-3 text-[1.05rem] leading-8 text-[#b3bdd4]'>
+              Open to internships, freelance projects, web app builds, Flutter apps, and full-stack product work.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
   )
 }
 
